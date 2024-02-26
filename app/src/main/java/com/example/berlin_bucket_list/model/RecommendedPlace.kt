@@ -6,7 +6,7 @@ import androidx.annotation.StringRes
 data class RecommendedPlace(
     @DrawableRes val imageId: Int,
     val placeDescription: String,
-    @StringRes val placeDetails: Int,
+    val placeDetails: String = "",
     @StringRes val address: Int,
     @StringRes val credits: Int
 )
