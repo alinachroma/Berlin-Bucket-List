@@ -1,10 +1,30 @@
 package com.example.berlin_bucket_list.data
 
-import com.example.berlin_bucket_list.model.RecommendedPlace
 import com.example.berlin_bucket_list.R
+import com.example.berlin_bucket_list.model.Category
+import com.example.berlin_bucket_list.model.RecommendedPlace
 
 
 object DataSource {
+
+    val categories = listOf(
+        Category(
+            categoryName = R.string.category_1,
+            categoryImage = R.drawable.barcomis_1
+        ),
+        Category(
+            categoryName = R.string.category_2,
+            categoryImage = R.drawable.britzer_garten
+        ),
+        Category(
+            categoryName = R.string.category_3,
+            categoryImage = R.drawable.alexa_2
+        ),
+        Category(
+            categoryName = R.string.category_4,
+            categoryImage = R.drawable.legoland_3
+        ),
+    )
 
     val cafes = listOf(
         RecommendedPlace(
