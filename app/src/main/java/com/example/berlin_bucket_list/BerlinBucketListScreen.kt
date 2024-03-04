@@ -35,6 +35,7 @@ fun BerlinBucketListApp(
         Box(
             modifier = Modifier.padding(innerPadding)
         ) {
+            HomeScreenItemList()
         }
     }
 }
@@ -62,6 +63,21 @@ fun BerlinBucketListItem(
                 )
             }
             Text(text = stringResource(id = stringResourceId))
+        }
+    }
+}
+
+@Composable
+fun HomeScreenItemList(
+    modifier: Modifier = Modifier
+) {
+    val categories = DataSource.categories
+    LazyColumn(modifier = modifier) {
+        items(categories) { category ->
+            BerlinBucketListItem(
+                imageResourceId = category.categoryImage,
+                stringResourceId = category.categoryName
+            )
         }
     }
 }
