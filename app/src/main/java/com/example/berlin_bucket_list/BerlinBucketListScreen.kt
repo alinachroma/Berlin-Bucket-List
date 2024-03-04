@@ -97,3 +97,30 @@ fun BerlinBucketListAppBar(modifier: Modifier = Modifier) {
 }
 
 
+@Preview(showBackground = true)
+@Composable
+fun BerlinBucketListAppBarPreview() {
+    BerlinBucketListTheme {
+        BerlinBucketListAppBar()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun BerlinBucketListItemPreview() {
+    BerlinBucketListTheme {
+        BerlinBucketListItem(
+            imageResourceId = R.drawable.barcomis_1,
+            stringResourceId = R.string.category_1
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun BerlinBucketListPreview() {
+    BerlinBucketListTheme {
+        BerlinBucketListApp()
+    }
+}
+
