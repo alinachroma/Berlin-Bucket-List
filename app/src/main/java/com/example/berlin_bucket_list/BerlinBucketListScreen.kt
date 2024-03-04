@@ -38,6 +38,34 @@ fun BerlinBucketListApp(
         }
     }
 }
+
+@Composable
+fun BerlinBucketListItem(
+    modifier: Modifier = Modifier,
+    imageResourceId: Int,
+    stringResourceId: Int
+) {
+    ElevatedCard {
+        Row(
+            modifier = modifier
+                .fillMaxWidth()
+                .padding(16.dp)
+        ) {
+            Box(
+                modifier = Modifier.size(dimensionResource(id = R.dimen.icon_height))
+            ) {
+                Image(
+                    painter = painterResource(id = imageResourceId),
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    modifier = modifier.clip(Shapes.small)
+                )
+            }
+            Text(text = stringResource(id = stringResourceId))
+        }
+    }
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BerlinBucketListAppBar(modifier: Modifier = Modifier) {
