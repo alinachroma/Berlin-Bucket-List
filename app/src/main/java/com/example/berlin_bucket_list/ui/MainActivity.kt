@@ -1,4 +1,4 @@
-package com.example.berlin_bucket_list
+package com.example.berlin_bucket_list.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

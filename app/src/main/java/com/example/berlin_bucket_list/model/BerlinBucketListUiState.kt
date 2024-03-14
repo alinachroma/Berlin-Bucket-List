@@ -1,4 +1,4 @@
-package com.example.berlin_bucket_list.data
+package com.example.berlin_bucket_list.model
 
 import com.example.berlin_bucket_list.model.BerlinBucketListItem
 import com.example.berlin_bucket_list.model.CategoryType

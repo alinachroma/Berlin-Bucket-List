@@ -1,4 +1,4 @@
-package com.example.berlin_bucket_list
+package com.example.berlin_bucket_list.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -28,15 +28,13 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.berlin_bucket_list.R
 import com.example.berlin_bucket_list.data.DataSource
 import com.example.berlin_bucket_list.model.BerlinBucketListItem
 import com.example.berlin_bucket_list.model.CategoryType
 import com.example.berlin_bucket_list.navigation.Screen
 import com.example.berlin_bucket_list.ui.theme.BerlinBucketListTheme
-import com.example.berlin_bucket_list.ui.theme.BerlinBucketListViewModel
-import com.example.berlin_bucket_list.ui.theme.DetailsScreen
 import com.example.berlin_bucket_list.ui.theme.Shapes
-import com.example.berlin_bucket_list.BerlinBucketListItem
 
 @Composable
 fun BerlinBucketListApp(
