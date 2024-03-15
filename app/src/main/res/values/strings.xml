@@ -100,4 +100,5 @@
     <string name="kid_friendly_address_6">Am Tierpark 125, 10319 Berlin</string>
     <string name="kid_friendly_address_7">Trebbiner Str. 9, 10963 Berlin</string>
     <string name="kid_friendly_address_8">Osloer Str. 12, 13359 Berlin</string>
+    <string name="where">Where:</string>
 </resources>
