@@ -25,11 +25,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.berlin_bucket_list.R
 import com.example.berlin_bucket_list.data.DataSource
+import com.example.berlin_bucket_list.data.DataSource.emptyItem
 import com.example.berlin_bucket_list.model.BerlinBucketListItem
 import com.example.berlin_bucket_list.model.CategoryType
 import com.example.berlin_bucket_list.navigation.Screen
@@ -65,15 +68,19 @@ fun BerlinBucketListApp(
                     modifier = Modifier.padding(innerPadding),
                 )
             }
-            composable(Screen.RecommendationsScreen.route) {
+            composable(route = Screen.RecommendationsScreen.route) {
                 RecommendationsScreen(
                     recommendedPlaces = uiState.placesToShow,
                     onSelectionChanged = {
                         viewModel.updateRecommendedPlace(recommendedPlace = it)
+                        navController.navigate(route = "Details/${it}")
+                    }
                 )
             }
-            composable(Screen.DetailsScreen.route) {
-                DetailsScreen()
+            composable(route = Screen.DetailsScreen.route) {
+                DetailsScreen(
+                    item = uiState.recommendedPlace ?: emptyItem
+                )
             }
         }
     }

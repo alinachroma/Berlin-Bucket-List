@@ -17,11 +17,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.berlin_bucket_list.R
 import com.example.berlin_bucket_list.model.BerlinBucketListItem
+import com.example.berlin_bucket_list.model.CategoryType
 import com.example.berlin_bucket_list.ui.theme.BerlinBucketListTheme
 import com.example.berlin_bucket_list.ui.theme.Shapes
-import com.example.berlin_bucket_list.R
-import com.example.berlin_bucket_list.model.CategoryType
 
 @Composable
 fun DetailsScreen(
@@ -88,7 +88,7 @@ fun DetailsScreenPreview() {
                         "Unnecessarily curious. Unnecessarily obsessed.”",
                 placeDetails = null,
                 categoryType = CategoryType.Cafes
-            )
+            ),
         )
     }
 }
