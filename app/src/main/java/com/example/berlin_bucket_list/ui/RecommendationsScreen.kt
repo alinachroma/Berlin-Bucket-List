@@ -14,12 +14,14 @@ import com.example.berlin_bucket_list.ui.theme.BerlinBucketListTheme
 @Composable
 fun RecommendationsScreen(
     recommendedPlaces: List<BerlinBucketListItem>,
+    onSelectionChanged: (BerlinBucketListItem) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column {
         RecommendedPlacesItemList(
             modifier = modifier.fillMaxSize(),
-            places = recommendedPlaces
+            places = recommendedPlaces,
+            onSelectionChanged = onSelectionChanged
         )
     }
 }
@@ -27,13 +29,15 @@ fun RecommendationsScreen(
 @Composable
 fun RecommendedPlacesItemList(
     modifier: Modifier = Modifier,
+    onSelectionChanged: (BerlinBucketListItem) -> Unit,
     places: List<BerlinBucketListItem>
 ) {
     LazyColumn(modifier = modifier) {
         items(places) { place ->
             BerlinBucketListItem(
                 item = place,
-                onItemClicked = { /*TODO*/ })
+                onItemClicked = { onSelectionChanged(place) }
+            )
         }
     }
 }
@@ -45,6 +49,7 @@ fun PlacesScreenPreview() {
         RecommendationsScreen(
             modifier = Modifier,
             recommendedPlaces = DataSource.parks,
+            onSelectionChanged = {}
         )
     }
 }

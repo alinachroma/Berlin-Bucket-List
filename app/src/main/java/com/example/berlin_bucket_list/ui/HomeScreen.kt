@@ -68,6 +68,8 @@ fun BerlinBucketListApp(
             composable(Screen.RecommendationsScreen.route) {
                 RecommendationsScreen(
                     recommendedPlaces = uiState.placesToShow,
+                    onSelectionChanged = {
+                        viewModel.updateRecommendedPlace(recommendedPlace = it)
                 )
             }
             composable(Screen.DetailsScreen.route) {

@@ -2,8 +2,9 @@ package com.example.berlin_bucket_list.ui
 
 import androidx.lifecycle.ViewModel
 import com.example.berlin_bucket_list.R
-import com.example.berlin_bucket_list.model.BerlinBucketListUiState
 import com.example.berlin_bucket_list.data.DataSource
+import com.example.berlin_bucket_list.model.BerlinBucketListItem
+import com.example.berlin_bucket_list.model.BerlinBucketListUiState
 import com.example.berlin_bucket_list.model.CategoryType
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -26,6 +27,14 @@ class BerlinBucketListViewModel : ViewModel() {
                     R.string.category_4 -> DataSource.kidsFriendly
                     else -> emptyList()
                 }
+            )
+        }
+    }
+
+    fun updateRecommendedPlace(recommendedPlace: BerlinBucketListItem) {
+        _uiState.update {
+            it.copy(
+                recommendedPlace = recommendedPlace
             )
         }
     }
