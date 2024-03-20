@@ -30,6 +30,15 @@ object DataSource {
         ),
     )
 
+    val emptyItem = BerlinBucketListItem(
+    imageId = R.drawable.appbar_white,
+    name = R.string.app_name,
+    placeDescription = "Empty",
+    address = null,
+    credits = null,
+    categoryType = CategoryType.Cafes
+    )
+
     val cafes = listOf(
         BerlinBucketListItem(
             imageId = R.drawable.bonanza_1,
