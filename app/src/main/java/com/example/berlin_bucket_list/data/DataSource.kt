@@ -72,7 +72,7 @@ object DataSource {
         BerlinBucketListItem(
             imageId = R.drawable.betty_n_caty_1,
             name = R.string.cafe_5,
-            placeDescription = "“Already a real neighbourhood favourite Betty'n'Caty in Prenzlauer Berg serves you delicious breakfast and good coffee. The Avocado toast and the pancakes are particularly popular. In the afternoon there are delicious cakes. Many dishes are vegetarian/vegan and/or gluten-free.“",
+            placeDescription = "“Already a real neighbourhood favourite Betty'n'Caty in Prenzlauer Berg serves you delicious breakfast and good coffee. The Avocado toast and the pancakes are particularly popular. In the afternoon there are delicious cakes. Many dishes are vegetarian, vegan or gluten-free.“",
             address = R.string.cafe_address_5,
             credits = R.string.credits_cafes_general,
             categoryType = CategoryType.Cafes
