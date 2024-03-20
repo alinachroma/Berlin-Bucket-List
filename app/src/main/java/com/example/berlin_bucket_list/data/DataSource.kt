@@ -43,17 +43,6 @@ object DataSource {
             categoryType = CategoryType.Cafes
         ),
         BerlinBucketListItem(
-            imageId = R.drawable.bonanza_1,
-            name = R.string.cafe_1,
-            placeDescription = "“Bonanza coffee doesn’t have to taste that way. But it does.\n" +
-                    "It’s not your typical. It's unnecessarily good.\n" +
-                    "Maybe that's because we're unnecessarily driven.\n" +
-                    "Unnecessarily curious. Unnecessarily obsessed.”",
-            address = R.string.cafe_address_1,
-            credits = R.string.credits_cafes_general,
-            categoryType = CategoryType.Cafes
-        ),
-        BerlinBucketListItem(
             imageId = R.drawable.suesskramdealer_1,
             name = R.string.cafe_2,
             placeDescription = "“It lives up to its name: in this shop, which is still mostly furnished with wood from the Wilhelminian period, you feel like you've gone back in time. You can get fine chocolate, coffee, and gifts here. Since 2011, a modern coffee house right next door has been part of it, where you can sit comfortably and sip coffee.“",
