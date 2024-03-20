@@ -160,16 +160,16 @@ fun BerlinBucketListAppBarPreview() {
 @Composable
 fun BerlinBucketListItemPreview() {
     BerlinBucketListTheme {
-        BerlinBucketListItem (
-           item = BerlinBucketListItem(
-               imageId = R.drawable.barcomis_1,
-               name = R.string.cafe_1,
-               address = null,
-               credits = null,
-               placeDescription = null,
-               placeDetails = null,
-               categoryType = CategoryType.Cafes
-           ),
+        BerlinBucketListItem(
+            item = BerlinBucketListItem(
+                imageId = R.drawable.barcomis_1,
+                name = R.string.cafe_1,
+                address = null,
+                credits = null,
+                placeDescription = null,
+                placeDetails = null,
+                categoryType = CategoryType.Cafes
+            ),
             onItemClicked = {}
         )
     }
