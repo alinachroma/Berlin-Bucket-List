@@ -74,7 +74,13 @@ fun BerlinBucketListApp(
     }
 
     Scaffold(
-        topBar = { BerlinBucketListAppBar() }
+        topBar = {
+            BerlinBucketListAppBar(
+                screenTitle = topBarTitle ?: "",
+                canNavigateBack = navController.previousBackStackEntry != null,
+                navigateUp = { navController.navigateUp() }
+            )
+        }
     ) { innerPadding ->
 
         NavHost(
@@ -161,24 +167,42 @@ fun HomeScreen(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BerlinBucketListAppBar(modifier: Modifier = Modifier) {
+fun BerlinBucketListAppBar(
+    screenTitle: String,
+    canNavigateBack: Boolean,
+    navigateUp: () -> Unit = {},
+    modifier: Modifier = Modifier,
+) {
     TopAppBar(
         title = {
-            Image(
+            Text(text = screenTitle)
+            /*Image(
                 painter = painterResource(id = R.drawable.appbar_black),
                 contentDescription = null
-            )
+            )*/
+        },
+        navigationIcon = {
+            if (canNavigateBack) {
+                IconButton(onClick = navigateUp) {
+                    Icon(
+                        imageVector = Icons.Filled.ArrowBack,
+                        contentDescription = stringResource(id = R.string.back_button)
+                    )
+                }
+            }
         },
         modifier = modifier
     )
 }
 
-
 @Preview(showBackground = true)
 @Composable
 fun BerlinBucketListAppBarPreview() {
     BerlinBucketListTheme {
-        BerlinBucketListAppBar()
+        BerlinBucketListAppBar(
+            canNavigateBack = false,
+            screenTitle = Screen.HomeScreen.route
+        )
     }
 }
 
