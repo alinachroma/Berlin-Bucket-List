@@ -267,11 +267,19 @@ fun HomeScreen(
     onSelectionChanged: (BerlinBucketListItem) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    LazyColumn(modifier = modifier) {
+
+    LazyColumn(
+        verticalArrangement = Arrangement.spacedBy(20.dp),
+        modifier = modifier.padding(
+            start = 24.dp,
+            end = 24.dp
+        )
+    ) {
         items(categories) { category ->
             BerlinBucketListItem(
                 item = category,
                 onItemClicked = { onSelectionChanged(category) },
+                modifier = Modifier
             )
         }
     }
