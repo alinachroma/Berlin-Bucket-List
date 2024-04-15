@@ -46,6 +46,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
@@ -284,10 +285,7 @@ fun HomeScreen(
 
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(20.dp),
-        modifier = modifier.padding(
-            start = 24.dp,
-            end = 24.dp
-        )
+        modifier = modifier.padding(start = 24.dp, end = 24.dp)
     ) {
         items(categories) { category ->
             BerlinBucketListItem(
@@ -310,7 +308,22 @@ fun BerlinBucketListAppBar(
 ) {
     TopAppBar(
         title = {
-            Text(text = screenTitle)
+            if (!canNavigateBack) {
+                Row(
+                    horizontalArrangement = Arrangement.End,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(36.dp)
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.bucket_list),
+                        style = MaterialTheme.typography.labelMedium,
+                        color = White
+                    )
+                }
+            } else {
+                TopAppBarTitle(title = screenTitle.uppercase())
+            }
         },
         colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Transparent),
         navigationIcon = {
@@ -318,12 +331,22 @@ fun BerlinBucketListAppBar(
                 IconButton(onClick = navigateUp) {
                     Icon(
                         imageVector = Icons.Filled.ArrowBack,
-                        contentDescription = stringResource(id = R.string.back_button)
+                        contentDescription = stringResource(id = R.string.back_button),
+                        tint = White
                     )
                 }
             }
         },
-        modifier = modifier
+        modifier = modifier.padding(top = 20.dp, bottom = 20.dp)
+    )
+}
+
+@Composable
+fun TopAppBarTitle(title: String) {
+    Text(
+        text = title,
+        style = MaterialTheme.typography.labelMedium,
+        color = White
     )
 }
 
