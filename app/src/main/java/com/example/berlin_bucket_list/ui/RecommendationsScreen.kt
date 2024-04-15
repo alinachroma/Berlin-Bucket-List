@@ -37,10 +37,7 @@ fun RecommendedPlacesItemList(
 ) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(20.dp),
-        modifier = modifier.padding(
-            start = 24.dp,
-            end = 24.dp
-        )
+        modifier = modifier.padding(start = 24.dp, end = 24.dp)
     ) {
         items(places) { place ->
             BerlinBucketListItem(
