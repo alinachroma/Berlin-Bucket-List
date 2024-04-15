@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Berlin Bucket List</string>
-    <string name="bucket_list">Bucket List</string>
+    <string name="bucket_list">BUCKET LIST</string>
+    <string name="berlin">Berlin</string>
     <string name="category_1">Cafés </string>
     <string name="category_2">Parks</string>
     <string name="category_3">Shopping</string>
