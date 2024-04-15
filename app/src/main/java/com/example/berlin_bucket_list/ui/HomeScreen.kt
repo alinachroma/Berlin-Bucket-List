@@ -296,11 +296,8 @@ fun BerlinBucketListAppBar(
     TopAppBar(
         title = {
             Text(text = screenTitle)
-            /*Image(
-                painter = painterResource(id = R.drawable.appbar_black),
-                contentDescription = null
-            )*/
         },
+        colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Transparent),
         navigationIcon = {
             if (canNavigateBack) {
                 IconButton(onClick = navigateUp) {
