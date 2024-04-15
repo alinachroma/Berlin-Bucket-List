@@ -45,6 +45,7 @@ fun RecommendedPlacesItemList(
         items(places) { place ->
             BerlinBucketListItem(
                 item = place,
+                isHomeScreen = false,
                 onItemClicked = { onSelectionChanged(place) }
             )
         }

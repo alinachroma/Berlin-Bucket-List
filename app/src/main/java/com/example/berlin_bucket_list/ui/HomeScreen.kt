@@ -27,6 +27,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawWithCache
@@ -48,6 +49,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
@@ -126,6 +128,7 @@ fun BerlinBucketListApp(
                             )
                             navController.navigate(Screen.RecommendationsScreen.route)
                         },
+                        isHomeScreen = true,
                         modifier = Modifier.padding(innerPadding),
                     )
                 }
@@ -222,8 +225,10 @@ fun ShadowBox(
 fun BerlinBucketListItem(
     item: BerlinBucketListItem,
     onItemClicked: () -> Unit,
+    isHomeScreen: Boolean,
     modifier: Modifier = Modifier,
 ) {
+
     ShadowBox(
         elevation = 10.dp,
         shape = Shapes.small,
@@ -236,12 +241,15 @@ fun BerlinBucketListItem(
             modifier = modifier
         ) {
             Row(
+                horizontalArrangement = Arrangement.spacedBy(24.dp),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp)
+                    .padding(8.dp)
             ) {
                 Box(
-                    modifier = Modifier.size(dimensionResource(id = R.dimen.icon_height))
+                    modifier = Modifier
+                        .size(dimensionResource(id = R.dimen.icon_height))
+                        .padding(4.dp)
                 ) {
                     Image(
                         painter = painterResource(id = item.imageId),
@@ -252,8 +260,13 @@ fun BerlinBucketListItem(
                 }
                 Text(
                     text = stringResource(id = item.name).uppercase(),
-                    style = MaterialTheme.typography.displayMedium,
-                    color = White
+                    style = if (isHomeScreen) {
+                        MaterialTheme.typography.displayMedium
+                    } else {
+                        MaterialTheme.typography.displaySmall
+                    },
+                    color = White,
+                    modifier = Modifier.align(alignment = Alignment.CenterVertically)
                 )
 
             }
@@ -265,6 +278,7 @@ fun BerlinBucketListItem(
 fun HomeScreen(
     categories: List<BerlinBucketListItem>,
     onSelectionChanged: (BerlinBucketListItem) -> Unit,
+    isHomeScreen: Boolean,
     modifier: Modifier = Modifier
 ) {
 
@@ -279,6 +293,7 @@ fun HomeScreen(
             BerlinBucketListItem(
                 item = category,
                 onItemClicked = { onSelectionChanged(category) },
+                isHomeScreen = isHomeScreen,
                 modifier = Modifier
             )
         }
@@ -337,7 +352,8 @@ fun BerlinBucketListItemPreview() {
                 placeDetails = null,
                 categoryType = CategoryType.Cafes
             ),
-            onItemClicked = {}
+            onItemClicked = {},
+            isHomeScreen = true
         )
     }
 }
@@ -348,6 +364,7 @@ fun HomeScreenPreview() {
     BerlinBucketListTheme {
         HomeScreen(
             categories = DataSource.categories,
+            isHomeScreen = true,
             onSelectionChanged = {}
         )
     }
