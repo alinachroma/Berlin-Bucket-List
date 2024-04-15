@@ -109,7 +109,7 @@ fun BerlinBucketListApp(
                 painter = painterResource(id = R.drawable.appbar_white),
                 contentDescription = null,
                 contentScale = ContentScale.Fit,
-                modifier = Modifier.offset(x = 2.dp)
+                modifier = Modifier.offset(y = 4.dp)
             )
             Image(
                 painter = painterResource(id = R.drawable.appbar_black),
