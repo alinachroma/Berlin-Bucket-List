@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -101,8 +102,21 @@ fun BerlinBucketListApp(
             painter = painterResource(id = R.drawable.background_1),
             contentDescription = null,
             contentScale = ContentScale.Crop,
-            modifier = Modifier.matchParentSize()
+            modifier = modifier.matchParentSize()
         )
+        if (currentRoute == Screen.HomeScreen.route) {
+            Image(
+                painter = painterResource(id = R.drawable.appbar_white),
+                contentDescription = null,
+                contentScale = ContentScale.Fit,
+                modifier = Modifier.offset(x = 2.dp)
+            )
+            Image(
+                painter = painterResource(id = R.drawable.appbar_black),
+                contentDescription = null,
+                contentScale = ContentScale.Fit,
+            )
+        }
         Scaffold(
             containerColor = Transparent,
             topBar = {
