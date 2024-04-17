@@ -121,14 +121,11 @@ fun DetailsScreenPreview() {
     BerlinBucketListTheme {
         DetailsScreen(
             item = BerlinBucketListItem(
-                imageId = R.drawable.barcomis_1,
+                imageId = R.drawable.barcomis_2,
                 name = R.string.cafe_1,
                 address = R.string.cafe_address_1,
                 credits = R.string.credits_cafes_general,
-                placeDescription = "“Bonanza coffee doesn’t have to taste that way. But it does.\n" +
-                        "It’s not your typical. It's unnecessarily good.\n" +
-                        "Maybe that's because we're unnecessarily driven.\n" +
-                        "Unnecessarily curious. Unnecessarily obsessed.”",
+                placeDescription = DataSource.cafes[0].placeDescription,
                 extraInfo = DataSource.cafes[0].extraInfo,
                 placeDetails = null,
                 categoryType = CategoryType.Cafes
