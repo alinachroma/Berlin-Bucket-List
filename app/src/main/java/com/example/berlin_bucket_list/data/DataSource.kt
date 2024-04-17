@@ -43,10 +43,7 @@ object DataSource {
         BerlinBucketListItem(
             imageId = R.drawable.bonanza_1,
             name = R.string.cafe_1,
-            placeDescription = "“Bonanza coffee doesn’t have to taste that way. But it does.\n" +
-                    "It’s not your typical. It's unnecessarily good.\n" +
-                    "Maybe that's because we're unnecessarily driven.\n" +
-                    "Unnecessarily curious. Unnecessarily obsessed.”",
+            placeDescription = "“Bonanza coffee doesn’t have to taste that way. But it does. It’s not your typical. It's unnecessarily good. Maybe that's because we're unnecessarily driven. Unnecessarily curious. Unnecessarily obsessed.”",
             address = R.string.cafe_address_1,
             credits = R.string.credits_cafes_general,
             categoryType = CategoryType.Cafes
@@ -126,10 +123,7 @@ object DataSource {
         BerlinBucketListItem(
             imageId = R.drawable.barcomis_1,
             name = R.string.cafe_10,
-            placeDescription = "“Coffee is our passion - and has been since 1994.\n" +
-                    "Founder Cynthia Barcomi started roasting coffee in order to serve authentic, good coffee to her guests.\n" +
-                    "Since then, many new kinds have been added, but the traditional roasting process by hand\n" +
-                    "and the excellent taste has remained.“",
+            placeDescription = "“Coffee is our passion - and has been since 1994. Founder Cynthia Barcomi started roasting coffee in order to serve authentic, good coffee to her guests. Since then, many new kinds have been added, but the traditional roasting process by hand and the excellent taste has remained.“",
             address = R.string.cafe_address_10,
             credits = R.string.credits_cafe_10,
             categoryType = CategoryType.Cafes
