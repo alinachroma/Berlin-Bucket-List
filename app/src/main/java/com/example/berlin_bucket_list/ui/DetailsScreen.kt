@@ -1,10 +1,13 @@
 package com.example.berlin_bucket_list.ui
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
@@ -12,7 +15,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -21,6 +26,9 @@ import com.example.berlin_bucket_list.R
 import com.example.berlin_bucket_list.model.BerlinBucketListItem
 import com.example.berlin_bucket_list.model.CategoryType
 import com.example.berlin_bucket_list.ui.theme.BerlinBucketListTheme
+import com.example.berlin_bucket_list.ui.theme.DarkGreenCard
+import com.example.berlin_bucket_list.ui.theme.DarkYellowCard
+import com.example.berlin_bucket_list.ui.theme.GreenCard
 import com.example.berlin_bucket_list.ui.theme.Shapes
 
 @Composable
@@ -34,29 +42,37 @@ fun DetailsScreen(
         Column(
             verticalArrangement = Arrangement.spacedBy((-100).dp)
         ) {
+            val colorStops = arrayOf(
+                0.0f to DarkGreenCard,
+                0.5f to GreenCard,
+                1f to DarkYellowCard
+            )
             ElevatedCard(
                 modifier = modifier
                     .size(rectangleWidth, rectangleHeight)
                     .weight(1f)
                     .clip(Shapes.medium),
-                colors = CardDefaults.cardColors(
-                    containerColor = Color.White,
-                ),
             ) {
-                Image(
-                    painter = painterResource(id = item.imageId),
-                    contentDescription = null
-                )
-
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .weight(1f)
+                ) {
+                    Image(
+                        painter = painterResource(id = item.imageId),
+                        contentScale = ContentScale.FillHeight,
+                        contentDescription = null,
+                        modifier = Modifier.fillMaxSize()
+                    )
+                }
             }
             ElevatedCard(
                 modifier = Modifier
-                    .size(rectangleWidth, rectangleHeight)
                     .weight(1f)
-                    .clip(Shapes.medium),
-                colors = CardDefaults.cardColors(
-                    containerColor = Color.LightGray,
-                )
+                    .clip(Shapes.medium)
+                    .background(Brush.verticalGradient(colorStops = colorStops)),
+                colors = CardDefaults.cardColors(containerColor = Color.Transparent),
+                elevation = CardDefaults.elevatedCardElevation(defaultElevation = 20.dp)
             ) {
                 Text(text = item.placeDescription ?: "")
                 Text(text = stringResource(id = R.string.where))
