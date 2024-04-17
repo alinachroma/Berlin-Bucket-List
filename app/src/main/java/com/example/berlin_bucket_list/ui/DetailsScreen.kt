@@ -8,18 +8,23 @@ import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.berlin_bucket_list.R
@@ -30,6 +35,7 @@ import com.example.berlin_bucket_list.ui.theme.DarkGreenCard
 import com.example.berlin_bucket_list.ui.theme.DarkYellowCard
 import com.example.berlin_bucket_list.ui.theme.GreenCard
 import com.example.berlin_bucket_list.ui.theme.Shapes
+import com.example.berlin_bucket_list.ui.utils.ShadowBox
 
 @Composable
 fun DetailsScreen(
@@ -47,7 +53,7 @@ fun DetailsScreen(
                 0.5f to GreenCard,
                 1f to DarkYellowCard
             )
-            ElevatedCard(
+            Card(
                 modifier = modifier
                     .size(rectangleWidth, rectangleHeight)
                     .weight(1f)
@@ -66,24 +72,35 @@ fun DetailsScreen(
                     )
                 }
             }
-            ElevatedCard(
-                modifier = Modifier
-                    .weight(1f)
-                    .clip(Shapes.medium)
-                    .background(Brush.verticalGradient(colorStops = colorStops)),
-                colors = CardDefaults.cardColors(containerColor = Color.Transparent),
-                elevation = CardDefaults.elevatedCardElevation(defaultElevation = 20.dp)
+            ShadowBox(
+                elevation = 10.dp,
+                shape = Shapes.small,
+                modifier = Modifier.weight(1f),
             ) {
-                Text(text = item.placeDescription ?: "")
-                Text(text = stringResource(id = R.string.where))
-                ElevatedCard {
-                    Text(text = stringResource(id = item.address ?: -1))
-                }
-                Row {
-                    Text(text = stringResource(id = R.string.text_and_photo))
-                    Text(text = stringResource(id = item.credits ?: -1))
+                Card(
+                    modifier = Modifier
+                        .clip(Shapes.medium)
+                        .background(Brush.verticalGradient(colorStops = colorStops))
+                        .padding(start = 24.dp, end = 24.dp, top = 36.dp, bottom = 24.dp),
+                    colors = CardDefaults.cardColors(containerColor = Color.Transparent),
+                ) {
+                    Text(
+                        text = item.placeDescription ?: "",
+                        textAlign = TextAlign.End,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = White
+                    )
+                    Text(text = stringResource(id = R.string.where))
+                    ElevatedCard {
+                        Text(text = stringResource(id = item.address ?: -1))
+                    }
+                    Row {
+                        Text(text = stringResource(id = R.string.text_and_photo))
+                        Text(text = stringResource(id = item.credits ?: -1))
+                    }
                 }
             }
+
         }
     }
 }
