@@ -67,6 +67,7 @@ import com.example.berlin_bucket_list.model.CategoryType
 import com.example.berlin_bucket_list.navigation.Screen
 import com.example.berlin_bucket_list.ui.theme.BerlinBucketListTheme
 import com.example.berlin_bucket_list.ui.theme.Shapes
+import com.example.berlin_bucket_list.ui.utils.ShadowBox
 
 @Composable
 fun BerlinBucketListApp(
@@ -162,75 +163,6 @@ fun BerlinBucketListApp(
                     )
                 }
             }
-        }
-    }
-}
-
-// The ClippedShadow and ShadowBox Composables fix the
-// material shadow glitch on transparent/translucent Composables.
-// Author: zed-alpha. Repo: https://gist.github.com/zed-alpha/3dc931720292c1f3ff31fa6a130f52cd
-@Composable
-fun ClippedShadow(elevation: Dp, shape: Shape, modifier: Modifier = Modifier) {
-    Layout(
-        modifier
-            .drawWithCache {
-                val path = androidx.compose.ui.graphics.Path()
-                var lastSize: Size? = null
-
-                fun updatePathIfNeeded() {
-                    if (size != lastSize) {
-                        path.reset()
-                        path.addOutline(
-                            shape.createOutline(size, layoutDirection, this)
-                        )
-                        lastSize = size
-                    }
-                }
-
-                onDrawWithContent {
-                    updatePathIfNeeded()
-                    clipPath(path, ClipOp.Difference) {
-                        this@onDrawWithContent.drawContent()
-                    }
-                }
-            }
-            .shadow(elevation, shape)
-    ) { _, constraints ->
-        layout(constraints.minWidth, constraints.minHeight) {}
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class)
-@Composable
-fun ShadowBox(
-    elevation: Dp,
-    shape: Shape,
-    modifier: Modifier = Modifier,
-    content: @Composable () -> Unit
-) {
-    Layout(
-        {
-            ClippedShadow(elevation, shape, modifier)
-            CompositionLocalProvider(LocalMinimumInteractiveComponentEnforcement provides false) {
-                content()
-            }
-        },
-        modifier
-    ) { measurable, constraints ->
-        require(measurable.size == 2)
-
-        val shadow = measurable[0]
-        val target = measurable[1]
-
-        val targetPlaceable = target.measure(constraints)
-        val width = targetPlaceable.width
-        val height = targetPlaceable.height
-
-        val shadowPlaceable = shadow.measure(Constraints.fixed(width, height))
-
-        layout(width, height) {
-            shadowPlaceable.place(0, 0)
-            targetPlaceable.place(0, 0)
         }
     }
 }
