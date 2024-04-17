@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
@@ -231,7 +232,8 @@ fun HomeScreen(
 
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(20.dp),
-        modifier = modifier.padding(start = 24.dp, end = 24.dp)
+        contentPadding = PaddingValues(start = 24.dp, end = 24.dp, bottom = 24.dp),
+        modifier = modifier,
     ) {
         items(categories) { category ->
             BerlinBucketListItem(
@@ -283,7 +285,7 @@ fun BerlinBucketListAppBar(
                 }
             }
         },
-        modifier = modifier.padding(top = 20.dp, bottom = 20.dp)
+        modifier = modifier.padding(top = 20.dp)
     )
 }
 

@@ -2,6 +2,7 @@ package com.example.berlin_bucket_list.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -37,7 +38,8 @@ fun RecommendedPlacesItemList(
 ) {
     LazyColumn(
         verticalArrangement = Arrangement.spacedBy(20.dp),
-        modifier = modifier.padding(start = 24.dp, end = 24.dp)
+        contentPadding = PaddingValues(start = 24.dp, end = 24.dp, bottom = 24.dp, top = 24.dp),
+        modifier = modifier
     ) {
         items(places) { place ->
             BerlinBucketListItem(
