@@ -33,15 +33,30 @@ val Typography = Typography(
         fontWeight = FontWeight.Normal,
         fontSize = 18.sp
     ),
+    titleSmall = TextStyle(
+        fontFamily = AllertaStencilFamily,
+        fontWeight = FontWeight.Normal,
+        fontSize = 17.sp
+    ),
     labelMedium = TextStyle(
         fontFamily = AllertaStencilFamily,
         fontWeight = FontWeight.Normal,
         fontSize = 24.sp
     ),
+    labelSmall = TextStyle(
+        fontFamily = AllertaStencilFamily,
+        fontWeight = FontWeight.Normal,
+        fontSize = 14.sp
+    ),
     bodySmall = TextStyle(
         fontFamily = BubbleOne,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
+        fontSize = 20.sp
+    ),
+    headlineSmall = TextStyle(
+        fontFamily = BubbleOne,
+        fontWeight = FontWeight.Thin,
+        fontSize = 10.sp
     )
     /* Other default text styles to override
        titleLarge = TextStyle(
