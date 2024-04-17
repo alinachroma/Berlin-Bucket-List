@@ -11,6 +11,9 @@ import com.example.berlin_bucket_list.R
 val AllertaStencilFamily = FontFamily(
     Font(R.font.allerta_stencil_regular, FontWeight.Normal)
 )
+val BubbleOne = FontFamily(
+    Font(R.font.bubbler_one_regular, FontWeight.Normal)
+)
 
 val Typography = Typography(
     bodyLarge = TextStyle(
@@ -35,20 +38,25 @@ val Typography = Typography(
         fontWeight = FontWeight.Normal,
         fontSize = 24.sp
     ),
- /* Other default text styles to override
-    titleLarge = TextStyle(
-        fontFamily = FontFamily.Default,
+    bodySmall = TextStyle(
+        fontFamily = BubbleOne,
         fontWeight = FontWeight.Normal,
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
-        letterSpacing = 0.sp
-    ),
-    labelSmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Medium,
-        fontSize = 11.sp,
-        lineHeight = 16.sp,
-        letterSpacing = 0.5.sp
+        fontSize = 16.sp
     )
-    */
+    /* Other default text styles to override
+       titleLarge = TextStyle(
+           fontFamily = FontFamily.Default,
+           fontWeight = FontWeight.Normal,
+           fontSize = 22.sp,
+           lineHeight = 28.sp,
+           letterSpacing = 0.sp
+       ),
+       labelSmall = TextStyle(
+           fontFamily = FontFamily.Default,
+           fontWeight = FontWeight.Medium,
+           fontSize = 11.sp,
+           lineHeight = 16.sp,
+           letterSpacing = 0.5.sp
+       )
+       */
 )
