@@ -10,5 +10,6 @@ data class BerlinBucketListItem(
     @StringRes val credits: Int? = null,
     val placeDescription: String? = "",
     val placeDetails: String? = "",
+    val extraInfo: String? = "",
     val categoryType: CategoryType,
 )

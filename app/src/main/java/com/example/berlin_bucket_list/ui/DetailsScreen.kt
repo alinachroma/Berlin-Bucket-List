@@ -97,6 +97,16 @@ fun DetailsScreen(
                     Row {
                         Text(text = stringResource(id = R.string.text_and_photo))
                         Text(text = stringResource(id = item.credits ?: -1))
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.End
+                        ) {
+                            Text(
+                                text = item.extraInfo ?: "",
+                                textAlign = TextAlign.End,
+                                style = MaterialTheme.typography.titleSmall,
+                                color = White
+                            )
                     }
                 }
             }
@@ -119,6 +129,7 @@ fun DetailsScreenPreview() {
                         "It’s not your typical. It's unnecessarily good.\n" +
                         "Maybe that's because we're unnecessarily driven.\n" +
                         "Unnecessarily curious. Unnecessarily obsessed.”",
+                extraInfo = DataSource.cafes[0].extraInfo,
                 placeDetails = null,
                 categoryType = CategoryType.Cafes
             ),

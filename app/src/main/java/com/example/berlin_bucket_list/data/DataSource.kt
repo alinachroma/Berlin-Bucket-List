@@ -44,6 +44,7 @@ object DataSource {
             imageId = R.drawable.bonanza_1,
             name = R.string.cafe_1,
             placeDescription = "“Bonanza coffee doesn’t have to taste that way. But it does. It’s not your typical. It's unnecessarily good. Maybe that's because we're unnecessarily driven. Unnecessarily curious. Unnecessarily obsessed.”",
+            extraInfo = "- BONANZA COFFEE TEAM",
             address = R.string.cafe_address_1,
             credits = R.string.credits_cafes_general,
             categoryType = CategoryType.Cafes
