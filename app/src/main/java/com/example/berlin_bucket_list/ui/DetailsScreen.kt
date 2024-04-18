@@ -64,10 +64,13 @@ fun DetailsScreen(
                 1f to DarkYellowCard
             )
             Card(
-                elevation = CardDefaults.elevatedCardElevation(defaultElevation = 10.dp),
                 modifier = modifier
-                    .clip(Shapes.medium)
-                    .shadow(elevation = 3.dp, spotColor = Black)
+                    .shadow(
+                        ambientColor = Black,
+                        spotColor = Black,
+                        elevation = 3.dp,
+                        shape = Shapes.medium
+                    )
                     .size(rectangleWidth, rectangleHeight)
                     .weight(1f)
             ) {
@@ -79,13 +82,13 @@ fun DetailsScreen(
                 )
             }
             ShadowBox(
-                elevation = 10.dp,
+                elevation = 12.dp,
                 shape = Shapes.medium,
                 modifier = Modifier.weight(1.2f)
             ) {
                 Card(
                     modifier = Modifier
-                        .shadow(elevation = 16.dp, ambientColor = White, spotColor = White)
+                        .shadow(elevation = 12.dp, ambientColor = White, spotColor = White)
                         .clip(RoundedCornerShape(topStartPercent = 10, topEndPercent = 10))
                         .background(Brush.verticalGradient(colorStops = colorStops)),
                     colors = CardDefaults.cardColors(containerColor = Color.Transparent),
