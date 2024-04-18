@@ -20,11 +20,11 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.Black
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.layout.ContentScale
@@ -79,87 +79,94 @@ fun DetailsScreen(
                     modifier = Modifier.fillMaxSize()
                 )
             }
-            Card(
+            Box(
                 modifier = Modifier
                     .shadow(
                         ambientColor = White,
                         spotColor = White,
-                        elevation = 3.dp,
+                        elevation = 12.dp,
+                        shape = RoundedCornerShape(topStartPercent = 10, topEndPercent = 10)
                     )
-                    .clip(RoundedCornerShape(topStartPercent = 10, topEndPercent = 10))
+                    .weight(1.2f)
                     .background(Brush.verticalGradient(colorStops = colorStops))
-                    .weight(1.2f),
-                colors = CardDefaults.cardColors(containerColor = Color.Transparent),
             ) {
-                Column(
+                Box(
                     modifier = Modifier
-                        .padding(start = 24.dp, end = 24.dp, top = 36.dp, bottom = 24.dp),
-                    verticalArrangement = Arrangement.SpaceEvenly
+                        .fillMaxHeight()
                 ) {
-                    Text(
-                        text = item.placeDescription ?: "",
-                        textAlign = TextAlign.End,
-                        style = MaterialTheme.typography.bodySmall,
-                        color = White
-                    )
-                    Spacer(modifier = Modifier.height(10.dp))
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.End
+                    Column(
+                        modifier = Modifier
+                            .padding(start = 24.dp, end = 24.dp, top = 36.dp, bottom = 24.dp),
+                        verticalArrangement = Arrangement.SpaceEvenly
                     ) {
                         Text(
-                            text = item.extraInfo ?: "",
+                            text = item.placeDescription ?: "",
                             textAlign = TextAlign.End,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = White
+                        )
+                        Spacer(modifier = Modifier.height(10.dp))
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.End
+                        ) {
+                            Text(
+                                text = item.extraInfo ?: "",
+                                textAlign = TextAlign.End,
+                                style = MaterialTheme.typography.titleSmall,
+                                color = White
+                            )
+                        }
+                        Text(
+                            text = stringResource(id = R.string.where).uppercase(),
                             style = MaterialTheme.typography.titleSmall,
                             color = White
                         )
-                    }
-                    Text(
-                        text = stringResource(id = R.string.where).uppercase(),
-                        style = MaterialTheme.typography.titleSmall,
-                        color = White
-                    )
-                    Spacer(modifier = Modifier.size(10.dp))
-                    ShadowBox(
-                        elevation = 10.dp,
-                        shape = Shapes.small
-                    ) {
-                        Card(
+                        Spacer(modifier = Modifier.size(10.dp))
+                        ShadowBox(
+                            elevation = 10.dp,
+                            shape = Shapes.small
+                        ) {
+                            Card(
+                                modifier = Modifier.fillMaxWidth(),
+                                shape = Shapes.small,
+                                colors = CardDefaults.elevatedCardColors(White.copy(alpha = 0.3f)),
+                            ) {
+                                Text(
+                                    text = stringResource(id = item.address ?: -1).uppercase(),
+                                    style = MaterialTheme.typography.labelSmall,
+                                    color = White,
+                                    modifier = Modifier
+                                        .padding(18.dp)
+                                )
+                            }
+                        }
+                        Spacer(modifier = Modifier.size(10.dp))
+                        Row(
                             modifier = Modifier.fillMaxWidth(),
-                            shape = Shapes.small,
-                            colors = CardDefaults.elevatedCardColors(White.copy(alpha = 0.3f)),
+                            horizontalArrangement = Arrangement.End
                         ) {
                             Text(
-                                text = stringResource(id = item.address ?: -1).uppercase(),
-                                style = MaterialTheme.typography.labelSmall,
+                                text = stringResource(id = R.string.text_and_photo) + " " + stringResource(
+                                    id = item.credits ?: -1
+                                ),
+                                textAlign = TextAlign.End,
+                                style = MaterialTheme.typography.headlineSmall,
                                 color = White,
-                                modifier = Modifier
-                                    .padding(18.dp)
                             )
                         }
                     }
-                    Spacer(modifier = Modifier.size(10.dp))
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.End
-                    ) {
-                        Text(
-                            text = stringResource(id = R.string.text_and_photo) + " " + stringResource(
-                                id = item.credits ?: -1
-                            ),
-                            textAlign = TextAlign.End,
-                            style = MaterialTheme.typography.headlineSmall,
-                            color = White,
-                        )
-                    }
-                    Box(modifier = Modifier.fillMaxHeight()) {
-                        Image(
-                            painter = painterResource(id = R.drawable.ellipse_2),
-                            contentDescription = null
-                        )
-                    }
-
+                    Image(
+                        painter = painterResource(id = R.drawable.ellipse_2),
+                        alignment = Alignment.BottomStart,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .align(Alignment.BottomStart)
+                            .fillMaxSize()
+                            .alpha(alpha = 0.5f)
+                    )
                 }
+
             }
         }
     }
