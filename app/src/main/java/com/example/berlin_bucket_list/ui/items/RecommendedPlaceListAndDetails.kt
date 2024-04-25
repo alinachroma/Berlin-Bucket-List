@@ -67,6 +67,7 @@ fun RecommendedPlaceListAndDetails(
     extraInfo: String,
     address: Int,
     credits: Int,
+    windowSize: WindowWidthSizeClass,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -102,13 +103,72 @@ fun RecommendedPlaceDetails(
     extraInfo: String,
     address: Int,
     credits: Int,
+    windowSize: WindowWidthSizeClass,
     modifier: Modifier = Modifier
 ) {
     Column(
         verticalArrangement = Arrangement.spacedBy((-100).dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
+        val configuration = LocalConfiguration.current
+        val portraitAndCompact = configuration.orientation == ORIENTATION_PORTRAIT
+                && windowSize == WindowWidthSizeClass.Compact
+
         Card(
+            modifier = modifier
+                .conditional(
+                    condition = portraitAndCompact,
+                    ifTrue = {
+                        shadow(
+                            ambientColor = Color.Black,
+                            spotColor = Color.Black,
+                            elevation = 3.dp,
+                            shape = Shapes.medium
+                        )
+                            .weight(1f)
+                    },
+                    ifFalse = {
+                        shadow(
+                            ambientColor = Color.Black,
+                            spotColor = Color.Black,
+                            elevation = 3.dp,
+                            shape = Shapes.medium
+                        )
+                    }
+                )
+        ) {
+            Image(
+                painter = painterResource(id = imageId),
+                contentScale = ContentScale.Crop,
+                contentDescription = null,
+                modifier = Modifier.fillMaxSize()
+            )
+        }
+        Box(
+            modifier = Modifier
+                .conditional(
+                    condition = portraitAndCompact,
+                    ifTrue = {
+                        shadow(
+                            ambientColor = Color.Black,
+                            spotColor = Color.Black,
+                            elevation = 1.dp,
+                            shape = RoundedCornerShape(topStartPercent = 10, topEndPercent = 10)
+                        )
+                            .background(Brush.verticalGradient(colorStops = gradientColors))
+                            .weight(1.2f)
+
+                    },
+                    ifFalse = {
+                        shadow(
+                            ambientColor = Color.Black,
+                            spotColor = Color.Black,
+                            elevation = 1.dp,
+                            shape = RoundedCornerShape(percent = 10)
+                        )
+                            .background(Brush.verticalGradient(colorStops = gradientColors))
+                    }
+                )
         ) {
             Column(
                 modifier = Modifier
