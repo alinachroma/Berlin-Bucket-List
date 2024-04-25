@@ -12,6 +12,8 @@ import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
 import com.example.berlin_bucket_list.ui.screens.BerlinBucketListApp
 import com.example.berlin_bucket_list.ui.theme.BerlinBucketListTheme
 
@@ -26,6 +28,8 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val windowSize = calculateWindowSizeClass(activity = this)
+                    WindowCompat.getInsetsController(window, window.decorView)
+                        .hide(WindowInsetsCompat.Type.systemBars())
                     BerlinBucketListApp(windowSize = windowSize.widthSizeClass)
                 }
             }
