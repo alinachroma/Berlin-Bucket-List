@@ -252,6 +252,7 @@ fun RecommendedPlaceDetails(
     }
 }
 
+// Credit: https://gist.github.com/KatieBarnett/b32e80f5d2a9ebce0f6f948aeb4f26d6#file-modifierutil-kt
 inline fun Modifier.conditional(
     condition: Boolean,
     ifTrue: Modifier.() -> Modifier,
