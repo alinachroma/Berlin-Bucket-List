@@ -192,6 +192,16 @@ fun RecommendedPlaceDetails(
     }
 }
 
+inline fun Modifier.conditional(
+    condition: Boolean,
+    ifTrue: Modifier.() -> Modifier,
+    ifFalse: Modifier.() -> Modifier = { this },
+): Modifier = if (condition) {
+    then(ifTrue(Modifier))
+} else {
+    then(ifFalse(Modifier))
+}
+
 @Preview(name = "Dark Mode", showBackground = true, uiMode = UI_MODE_NIGHT_YES)
 @Preview(name = "Light Mode", showBackground = true, uiMode = UI_MODE_NIGHT_NO)
 annotation class ThemePreviews
