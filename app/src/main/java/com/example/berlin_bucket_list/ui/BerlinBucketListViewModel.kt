@@ -3,6 +3,7 @@ package com.example.berlin_bucket_list.ui
 import androidx.lifecycle.ViewModel
 import com.example.berlin_bucket_list.R
 import com.example.berlin_bucket_list.data.DataSource
+import com.example.berlin_bucket_list.data.DataSource.emptyItem
 import com.example.berlin_bucket_list.model.BerlinBucketListItem
 import com.example.berlin_bucket_list.model.BerlinBucketListUiState
 import com.example.berlin_bucket_list.model.CategoryType
@@ -26,7 +27,14 @@ class BerlinBucketListViewModel : ViewModel() {
                     R.string.category_3 -> DataSource.shoppingCenters
                     R.string.category_4 -> DataSource.kidsFriendly
                     else -> emptyList()
-                }
+                },
+                recommendedPlace = when (clickedCategory.title) {
+                    R.string.category_1 -> DataSource.cafes[0]
+                    R.string.category_2 -> DataSource.parks[0]
+                    R.string.category_3 -> DataSource.shoppingCenters[0]
+                    R.string.category_4 -> DataSource.kidsFriendly[0]
+                    else -> emptyItem
+                },
             )
         }
     }
