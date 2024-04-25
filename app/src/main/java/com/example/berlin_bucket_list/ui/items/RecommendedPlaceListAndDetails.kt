@@ -192,4 +192,25 @@ fun RecommendedPlaceDetails(
     }
 }
 
+@Preview(name = "Dark Mode", showBackground = true, uiMode = UI_MODE_NIGHT_YES)
+@Preview(name = "Light Mode", showBackground = true, uiMode = UI_MODE_NIGHT_NO)
+annotation class ThemePreviews
+
+@ThemePreviews
+@Composable
+fun PreviewsListItem() {
+    BerlinBucketListTheme {
+        RecommendedPlaceListAndDetails(
+            imageId = R.drawable.tempelhofer_feld,
+            placeDescription = DataSource.parks[0].placeDescription!!,
+            extraInfo = "",
+            address = R.string.park_address_6,
+            credits = R.string.credits_park_6,
+            onSelectionChanged = {},
+            placesToShow = DataSource.parks,
+            windowSize = WindowWidthSizeClass.Compact
+        )
+    }
+}
+
 
