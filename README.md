@@ -10,7 +10,7 @@
 | <video src="https://github.com/alinachroma/Berlin-Bucket-List/assets/40247900/8d61fae5-e442-4cce-b12e-2f8d66508839"> | <video src="https://github.com/alinachroma/Berlin-Bucket-List/assets/40247900/ca1e2c99-a076-404e-a570-3754cd6dde52">| 
 
 <h2>Project Screenshots:</h2>
-<img src="https://github.com/alinachroma/Berlin-Bucket-List/assets/40247900/0379196b-ad6a-40a3-8a11-a7ec3e31682d" alt="project-screenshot" width="700" height="400/">
+<img src="https://github.com/alinachroma/Berlin-Bucket-List/assets/40247900/0379196b-ad6a-40a3-8a11-a7ec3e31682d" alt="project-screenshot" width="700" /">
   
 <h2>🧐 Features</h2>
 
