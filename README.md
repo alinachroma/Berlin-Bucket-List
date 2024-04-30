@@ -10,8 +10,7 @@
 | <video src="https://github.com/alinachroma/Berlin-Bucket-List/assets/40247900/8d61fae5-e442-4cce-b12e-2f8d66508839"> | <video src="https://github.com/alinachroma/Berlin-Bucket-List/assets/40247900/ca1e2c99-a076-404e-a570-3754cd6dde52">| 
 
 <h2>Project Screenshots:</h2>
-
-<img src="https://private-user-images.githubusercontent.com/40247900/326901214-83db3075-ccac-47db-9ce5-f037abc67be1.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTQ0OTQ4NjgsIm5iZiI6MTcxNDQ5NDU2OCwicGF0aCI6Ii80MDI0NzkwMC8zMjY5MDEyMTQtODNkYjMwNzUtY2NhYy00N2RiLTljZTUtZjAzN2FiYzY3YmUxLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA0MzAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNDMwVDE2MjkyOFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWI1NmUwMDhiMmJkMTJjYjU0OTg1NjVjZWFhMjA4ZTBkNTI5MmYzMGE1ZTVlOTNiMDVlOGJhMzgxYTZhZmIyYzEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.S-nQPHPHYACIexM0jlWFHlQfLPPjDC9cnlMJzwA-thc" alt="project-screenshot" width="700" height="400/">
+<img src="https://github.com/alinachroma/Berlin-Bucket-List/assets/40247900/0379196b-ad6a-40a3-8a11-a7ec3e31682d" alt="project-screenshot" width="700" height="400/">
   
 <h2>🧐 Features</h2>
 
