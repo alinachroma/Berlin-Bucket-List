@@ -1,8 +1,6 @@
 <h1 align="center" id="title">Berlin Bucket List</h1>
 
-<p id="description">An Android app that contains lists of recommendations for different activities and places to visit in Berlin. 
-  <br>
-  Built fully with Jetpack Compose within the "Android Basics with Compose" Course (Unit 4 - Navigation and app architecture, Adaptive layouts).</p>
+An Android app that contains lists of recommendations for different activities and places to visit in Berlin. Created for demo purposes to demonstrate everything I learned within the "Android Basics with Compose" Course (Unit 4 - Navigation and app architecture, Adaptive layouts). Built fully with Jetpack Compose.
 
 ## 🚀 Demo
 | Phone  | Tablet |
